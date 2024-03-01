@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集展示</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #f4f4f4;
+        scroll-behavior: smooth;
+    }
+
+    #navbar ul {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        background-color: #8C746A;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        height: auto;
+        top: -3%;
+        z-index: 1000;
+    }
+
+    #navbar li a {
+        color: white;
+        text-decoration: none;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+
+    #navbar li a:hover {
+        transform: scale(1.1);
+        background-color: #7a6458;
+    }
+
+    #slider {
+        position: relative;
+        width: 45%;
+        height: 60%;
+        margin: 20px auto;
+        overflow: hidden;
+        background: #d3baba;
+    }
+
+    .slides img {
+        height: 100%;
+        width: 100%;
+        /* 确保图片铺满整个slider */
+        position: absolute;
+        /* 使图片绝对定位于slider内 */
+        /* 默认图片透明 */
+        transition: opacity 2s ease-in-out;
+        /* 平滑的透明度过渡 */
+    }
+
+    .slides img:first-child {
+        display: block;
+        opacity: 1;
+        /* 第一张图片默认显示 */
+    }
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: #333;
+        background-color: #ddd;
+        border: none;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    #categories {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        margin: 20px auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        flex-wrap: wrap;
+        text-align: center;
+        font-size: 150px;
+        color: #333;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    a:hover {
+        color: #5f4e47;
+        transition: 0.2s;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* 其余样式保持不变 */
+    }
+
+    .category {
+        height: 480px;
+        /* 高度放大一倍 */
+        width: 240px;
+        /* 宽度等比例放大 */
+        margin: 0 1%;
+        /* 长方形之间的间隔减少三倍 */
+        background-color: #CDBA96;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-around;
+        background-color: #8C746A;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position:
+            fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    body {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .fadeInUp {
+        animation-name: fadeInUp;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .imgleft {
+        margin-left: 13%;
+        margin-top: 50px;
+        width: 30%;
+        height: 30%;
+    }
+
+    .text {
+        font-size: 50px;
+        margin-left: 13%;
+        margin-top: 200px;
+    }
+
+    .content {
+        margin-left: 13%;
+    }
+
+    .title {
+        font-size: 90px;
+        text-align: center;
+        height: 16rem;
+    }
+</style>
+
+<body>
+    <div id="home"></div>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#portfolio">作品集</a></li>
+            <li><a href="#about">關於我</a></li>
+            <li><a href="#contact">聯絡方式</a></li>
+        </ul>
+    </nav>
+
+    <div id="slider">
+        <div class="slides">
+            <img src="./src/image1.jpg" alt="作品1">
+            <img src="./src/image2.jpg" alt="作品2">
+            <img src="./src/image3.jpg" alt="作品3">
+            <img src="./src/image4.jpg" alt="作品4">
+            <img src="./src/image5.jpg" alt="作品5">
+        </div> <a class="prev" onclick="changeSlide(-1)">&#10094;</a> <a class="next"
+            onclick="changeSlide(1)">&#10095;</a>
+    </div>
+    <div class="title">作品集展示</div>
+    <div id="portfolio"></div>
+    <div id="categories">
+        <div class="category"><a href="#1">平面</a></div>
+        <div class="category"><a href="#2">立體</a></div>
+        <div class="category"><a href="#3">手工</a></div>
+    </div>
+
+
+
+    <div>
+        <div id="1"></div>
+        <p class="text">獲獎</p>
+        <p>
+            <img class="imgleft" src="./src/image25.jpg" alt="" />
+            <img class="imgleft" src="./src/image26.jpg" alt="">
+        </p>
+        <p class="content">澳門海關保護知識產權繪畫比賽 冠軍</p>
+        <p class="content">創作理念：漫畫</p>
+        <p>
+            <img class="imgleft" src="./src/image5.jpg" alt="" />
+            <img class="imgleft" src="./src/image9.jpg" alt="">
+        </p>
+        <p class="content">中華傳統文化推廣計畫青少年創新手繪中華文化特色口罩創作比賽2-華藝風貌中學組 季軍</p>
+        <p class="content">創作理念：青花瓷</p>
+        <p>
+            <img class="imgleft" src="./src/image10.jpg" alt="" />
+            <img class="imgleft" src="./src/image11.jpg" alt="">
+        </p>
+        <p class="content">「警察．形象」填色、繪畫及口號比賽 入圍獎及三等獎</p>
+        <p class="content">創作理念：剪影&漫畫</p>
+        <p>
+            <img class="imgleft" src="./src/image13.jpg" alt="" />
+            <img class="imgleft" src="./src/image19.jpg" alt="">
+        </p>
+        <p class="content">澳門無疆界青年協會 的擁抱「基本法」抱枕繪畫比賽 季軍</p>
+        <p class="content">創作理念：澳門街</p>
+        <p>
+            <img class="imgleft" src="./src/image2.jpg" alt="" />
+            <img class="imgleft" src="./src/image16.jpg" alt="">
+        </p>
+        <p class="content">Superior Culture 上‧文化的黑白繪畫大賽2023 亞軍</p>
+        <p class="content">創作理念：淚痕</p>
+        <p>
+            <img class="imgleft" src="./src/image15.jpg" alt="" />
+            <img class="imgleft" src="./src/image14.jpg" alt="">
+        </p>
+        <p class="content">第十二屆《小城影畫》攝影及繪畫填色比賽 優異獎</p>
+        <p class="content">創作理念：人和建築都共融</p>
+        <p>
+            <img class="imgleft" src="./src/image8.jpg" alt="" />
+            <img class="imgleft" src="./src/image51.jpg" alt="">
+        </p>
+        <p class="content">夢想童盟「童樂盃」2022—紅包設計比賽 入圍獎</p>
+        <p class="content">創作理念：兔年</p>
+
+        <p class="text">練習</p>
+        <p>
+            <img class="imgleft" src="./src/image28.jpg" alt="" />
+            <img class="imgleft" src="./src/image1.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image52.jpg" alt="" />
+            <img class="imgleft" src="./src/image53.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image37.jpg" alt="" />
+            <img class="imgleft" src="./src/image27.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image29.jpg" alt="" />
+            <img class="imgleft" src="./src/image24.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image38.jpg" alt="" />
+            <img class="imgleft" src="./src/image3.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image20.jpg" alt="" />
+            <img class="imgleft" src="./src/image21.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image22.jpg" alt="" />
+            <img class="imgleft" src="./src/image36.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image30.jpg" alt="" />
+            <img class="imgleft" src="./src/image31.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image12.jpg" alt="" />
+           
+        </p>
+        <p class="text">海報</p>
+        <p>
+            <img class="imgleft" src="./src/image23.jpg" alt="" />
+            <img class="imgleft" src="./src/image32.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image33.jpg" alt="" />
+            <img class="imgleft" src="./src/image34.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image35.jpg" alt="" />
+            <img class="imgleft" src="./src/image17.jpg" alt="" />
+        </p>
+
+
+        <div id="2"></div>
+        <p class="text">立體</p>
+        <p>
+            <img class="imgleft" src="./src/image6.jpg" alt="" />
+            <img class="imgleft" src="./src/image7.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image41.jpg" alt="" />
+            <img class="imgleft" src="./src/image42.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image49.jpg" alt="" />
+            <img class="imgleft" src="./src/image50.jpg" alt="">
+        </p>
+
+        <div id="3"></div>
+        <p class="text">手工</p>
+        <p>
+            <img class="imgleft" src="./src/image18.jpg" alt="" />
+            <img class="imgleft" src="./src/image39.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image40.jpg" alt="" />
+            <img class="imgleft" src="./src/image4.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image43.jpg" alt="" />
+            <img class="imgleft" src="./src/image44.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image45.jpg" alt="" />
+            <img class="imgleft" src="./src/image46.jpg" alt="">
+        </p>
+        <p>
+            <img class="imgleft" src="./src/image47.jpg" alt="" />
+            <img class="imgleft" src="./src/image48.jpg" alt="">
+        </p>
+        <p class="title">END</p>
+    </div>
+
+    <div id="contact"></div>
+    <footer>
+        <p>Email: soumelodycat@gmail.com</p>
+        <p>Facebook: <a href="http://facebook.com">facebook.com/example</a></p>
+        <p>Instagram: <a href="http://instagram.com">instagram.com/example</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+<script>
+    let slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+        let slides = document.getElementsByClassName("slides")[0].getElementsByTagName("img");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000);
+    }
+    
+    function changeSlide(n) {
+        slideIndex += (n - 1) % n;
+        showSlides();
+    }
+</script>
+
+
+</html>
