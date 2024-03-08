@@ -27,14 +27,18 @@
         padding: 10px 0;
         position: fixed;
         width: 100%;
-        height: auto;
-        top: -3%;
+        top: 0;
         z-index: 1000;
+        margin-top: -5px;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
     }
 
     #navbar li a {
         color: white;
-        text-decoration: none;
         transition: transform 0.3s, background-color 0.3s;
     }
 
@@ -47,6 +51,7 @@
         position: relative;
         width: 45%;
         height: 60%;
+        /* 使展示框的高度為視窗高度的一半 */
         margin: 20px auto;
         overflow: hidden;
         background: #d3baba;
@@ -71,10 +76,13 @@
 
     .prev,
     .next {
+        position: flex;
+        text-align: center;
         cursor: pointer;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        width: 1.5rem;
         font-size: 24px;
         color: #333;
         background-color: #ddd;
@@ -90,25 +98,18 @@
     }
 
     #categories {
-        width: 80%;
         display: flex;
         justify-content: space-around;
-        margin: 20px auto;
+        padding-left: 20%;
+        /* 最左面的长方形与左侧边界保持三分之一画面宽度的间距 */
+        padding-right: 20%;
+        /* 最右面的长方形与右侧边界保持三分之一画面宽度的间距 */
         padding-top: 10%;
         padding-bottom: 10%;
         flex-wrap: wrap;
         text-align: center;
         font-size: 150px;
         color: #333;
-    }
-    a {
-        text-decoration: none;
-        color: #333;
-    }
-
-    a:hover {
-        color: #5f4e47;
-        transition: 0.2s;
     }
 
     footer {
@@ -119,15 +120,25 @@
     }
 
     .category {
-        height: 480px;
+        height: 40%;
         /* 高度放大一倍 */
-        width: 240px;
+        width: 30%;
         /* 宽度等比例放大 */
         margin: 0 1%;
         /* 长方形之间的间隔减少三倍 */
         background-color: #CDBA96;
         text-align: center;
         cursor: pointer;
+        border-radius: 70px;
+        box-shadow: 2px 3px 3px 2px rgb(174, 144, 109);
+        color: #f4f4f4;
+        font-size: 50px;
+    }
+
+    .category:hover {
+        transform: scale(1.05);
+        background-color: #8C746A;
+        transition: transform 0.5s;
     }
 
     footer {
@@ -137,8 +148,7 @@
         color: white;
         text-align: center;
         padding: 10px 0;
-        position:
-            fixed;
+        position: fixed;
         bottom: 0;
         width: 100%;
     }
@@ -177,6 +187,14 @@
         height: 30%;
     }
 
+    .imgright {
+        margin-left: 26%;
+        margin-right: 26%;
+        margin-top: 50px;
+        width: 45%;
+        height: 45%;
+    }
+
     .text {
         font-size: 50px;
         margin-left: 13%;
@@ -185,13 +203,59 @@
 
     .content {
         margin-left: 13%;
+        margin-right: 13%;
+    }
+
+
+
+    .tab {
+        padding-left: 18%;
+        padding-right: 1%;
+    }
+
+    .text {
+        text-align: center;
+        margin-left: -30px;
+        font-size: 30px;
+        color: #7a6458;
+    }
+
+    .text1 {
+        font-size: 30px;
+        color: #7a6458;
+    }
+
+    .text2 {
+        font-size: 20px;
+        color: #82513c;
     }
 
     .title {
+        margin-top: -1.5rem;
         font-size: 90px;
         text-align: center;
-        height: 16rem;
+        background: rgb(255, 246, 236);
+        padding-top: 10%;
+        padding-bottom: 10%;
     }
+
+    .titlec {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    
+    .titleed {
+        height: 10rem;
+        margin-top: 3rem;
+        font-size: 90px;
+        text-align: center;
+        background: rgb(255, 246, 236);
+        padding-top: 10%;
+        padding-bottom: 10%;
+        color: #7a6458;
+    }
+
 </style>
 
 <body>
@@ -205,6 +269,13 @@
         </ul>
     </nav>
 
+    <div class="title">MY WEBSITE</div>
+    <div class="titlec">
+        <p>作品集展示</p>
+        <p>2021-2024</p>
+    </div>
+
+
     <div id="slider">
         <div class="slides">
             <img src="./src/image1.jpg" alt="作品1">
@@ -215,15 +286,224 @@
         </div> <a class="prev" onclick="changeSlide(-1)">&#10094;</a> <a class="next"
             onclick="changeSlide(1)">&#10095;</a>
     </div>
-    <div class="title">作品集展示</div>
     <div id="portfolio"></div>
     <div id="categories">
-        <div class="category"><a href="#1">平面</a></div>
-        <div class="category"><a href="#2">立體</a></div>
-        <div class="category"><a href="#3">手工</a></div>
+
+        <div class="category">
+            <a href="#1">
+                <p>平面</p>
+                <p><img src="./src/image23.jpg" alt="" width=100% height=100%></p>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#2">
+                <p>立體</p>
+                <p><img src="./src/image6.jpg" alt="" width=100% height=100%></p>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#3">
+                <p>手工</p>
+                <p><img src="./src/image39.jpg" alt="" width=100% height=100%></p>
+            </a>
+        </div>
     </div>
+    <div id="contact"></div>
+    <div id="about"></div>
+    <div class="text">個人履歷表-蘇穎璇</div>
+    <table class="tab">
+        <tr>
+            <td>_____________________________</td>
+            <td>_____________________________</td>
+            <td>_________________________________________________________________________</td>
+        </tr>
+        <tr>
+            <td class="text1">聯絡方法:</td>
+            <td></td>
+            <td class="text1">學習經驗:</td>
+        </tr>
+        <td>聯絡電話 66681496</td>
+        <td></td>
+        <td class="text2">國中時</td>
+        </tr>
 
-
+        <tr>
+            <td>電子郵件 soumelodycat@gmail.com</td>
+            <td></td>
+            <td>作為學校繪畫校隊成員</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text2">高中時</td>
+        </tr>
+        <tr>
+            <td class="text1">專長:</td>
+            <td></td>
+            <td>作為學校繪畫校隊成員
+            </td>
+        </tr>
+        <tr>
+            <td>善於溝通 設計與手工藝</td>
+            <td></td>
+            <td>代表學校參加各種各樣的繪畫比賽</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>擔任學校學生會總務部、英文大使、閱讀大使、環保小組、壁報小組成員</td>
+        </tr>
+        <tr>
+            <td class="text1">軟體能力:(1☆ ~ 5☆)</td>
+            <td></td>
+            <td>為學校義工服務了達101小時</td>
+        </tr>
+        <tr>
+            <td>Microsoft Office</td>
+            <td>☆☆☆☆</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Adobe Photoshop</td>
+            <td>☆☆☆☆</td>
+            <td class="text1">證書:</td>
+        </tr>
+        <tr>
+            <td>Adobe Illustrator</td>
+            <td>☆☆☆</td>
+            <td class="text2">2023</td>
+        </tr>
+        <tr>
+            <td>Blender 3D</td>
+            <td>☆☆☆</td>
+            <td>MOS 國際認證EXCEL2019ASSOCIATE</td>
+        </tr>
+        <tr>
+            <td>fusion 360</td>
+            <td>☆☆</td>
+            <td>MOS國際認證PowerPoint2019ASSOCIATE</td>
+        </tr>
+        <tr>
+            <td>AutoCAD</td>
+            <td>☆☆</td>
+            <td>MOS國際認證PowerPoint2016ASSOCIATE</td>
+        </tr>
+        <tr>
+            <td>網頁設計</td>
+            <td>☆☆</td>
+            <td>中華青年進步協會 短片創作培訓班畢業證書</td>
+        </tr>
+        <tr>
+            <td class="text1">語言能力:(1☆ ~ 5☆)</td>
+            <td></td>
+            <td class="text2">2022</td>
+        </tr>
+        <tr>
+            <td>粵語</td>
+            <td>☆☆☆☆</td>
+            <td>青年義工基礎訓練課程(12小時)修畢證明書</td>
+        </tr>
+        <tr>
+            <td>國語</td>
+            <td>☆☆☆☆</td>
+            <td>明日之星廣告策劃培訓計劃畢業證書</td>
+        </tr>
+        <tr>
+            <td>英文</td>
+            <td>☆☆☆</td>
+            <td class="text1"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text1">成就：</td>
+        </tr>
+        <tr>
+            <td class="text1">教育背景:</td>
+            <td></td>
+            <td class="text2">2024</td>
+        </tr>
+        <tr>
+            <td>澳門聖保祿學校</td>
+            <td></td>
+            <td>「警察．反詐」填色、繪畫及口號比賽 入圍獎</td>
+        </tr>
+        <tr>
+            <td>高中、國中、小學、幼稚園</td>
+            <td></td>
+            <td class="text2">2023</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>澳門特別行政區海關四格漫畫比賽 冠軍</td>
+        </tr>
+        <tr>
+            <td class="text1">性格:</td>
+            <td></td>
+            <td>全澳潔淨能源城市挑戰賽 亞軍</td>
+        </tr>
+        <tr>
+            <td>勤奮向上，有探究精神</td>
+            <td></td>
+            <td>華藝風貌中學組 季軍</td>
+        </tr>
+        <tr>
+            <td>積極樂觀，不輕易放棄</td>
+            <td></td>
+            <td>「警察．形象」填色、繪畫及口號比賽 三等獎</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>「警察．形象」填色、繪畫及口號比賽 入圍獎</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>第十二屆「小城影畫」填色比賽 優異獎</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>校內FRA ANGELICO安吉利科藝術獎</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text2">2022</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>擁抱「基本法」抱枕繪畫比賽 季軍</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>《残疾權利公約》填色比賽2022 優異獎</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>「夢想童盟」的新春利是封設計比賽 入圍獎</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>校內高一班內成績第三</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text2">2021</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>校內初三班內成績第一及操行獎</td>
+        </tr>
+    </table>
 
     <div>
         <div id="1"></div>
@@ -233,64 +513,110 @@
             <img class="imgleft" src="./src/image26.jpg" alt="">
         </p>
         <p class="content">澳門海關保護知識產權繪畫比賽 冠軍</p>
-        <p class="content">創作理念：漫畫</p>
+        <p class="content">創作主題："知識產權-四格漫畫"</p>
+        <p class="content">作品命名：資訊保護</p>
+        <p class="content">創作理念：背景是主人公因為漫畫的版權問題被盜而垂頭喪氣，接着有兩個人正在科普有關知識產權的訊息，最後呼籲大家要做好知識產權的保護。</p>
         <p>
             <img class="imgleft" src="./src/image5.jpg" alt="" />
             <img class="imgleft" src="./src/image9.jpg" alt="">
         </p>
         <p class="content">中華傳統文化推廣計畫青少年創新手繪中華文化特色口罩創作比賽2-華藝風貌中學組 季軍</p>
-        <p class="content">創作理念：青花瓷</p>
+        <p class="content">創作主題："中華文化特色口罩-華藝風貌"</p>
+        <p class="content">作品命名：現代青花瓷</p>
+        <p class="content">創作理念：以青花瓷的形式去展現中華傳統文化的風格，結合比賽主題「華藝風貌」四字，戲劇，大三巴，舞龍舞獅，煙花，荷花，燈籠，長城，印章，竹子等元素。
+        </p>
         <p>
             <img class="imgleft" src="./src/image10.jpg" alt="" />
             <img class="imgleft" src="./src/image11.jpg" alt="">
         </p>
         <p class="content">「警察．形象」填色、繪畫及口號比賽 入圍獎及三等獎</p>
-        <p class="content">創作理念：剪影&漫畫</p>
+        <p class="content">創作主題："「警察．形象」並附上口號"</p>
+        <p class="content">作品命名：可靠的英雄</p>
+        <p class="content">
+            創作理念：運用了剪影和漫畫的形式將警察的形象生動地展現出來，如左面的圖以警犬為形狀，內部是黃昏的路上正在出警的警察，加上旁邊的口號，展現出警察出警迅速可靠的形象；如右面的圖是交通意外為背景，接線員由收到報案電話後，出警的警察，最後把事情完美收尾，再加上中間的口號，可以同樣展現出處理事情迅速，可靠的形象。
+        </p>
         <p>
             <img class="imgleft" src="./src/image13.jpg" alt="" />
             <img class="imgleft" src="./src/image19.jpg" alt="">
         </p>
         <p class="content">澳門無疆界青年協會 的擁抱「基本法」抱枕繪畫比賽 季軍</p>
-        <p class="content">創作理念：澳門街</p>
+        <p class="content">創作主題："澳門&「基本法」"</p>
+        <p class="content">作品命名：澳門街</p>
+        <p class="content">創作理念：這幅畫作以議事庭前地為中心，兩邊是澳門的特色建築形成一條獨特的澳門街，而最後的兩個齒輪環環相扣代表着基本法和憲法的關係，與創作的主題呼應。</p>
         <p>
             <img class="imgleft" src="./src/image2.jpg" alt="" />
             <img class="imgleft" src="./src/image16.jpg" alt="">
         </p>
         <p class="content">Superior Culture 上‧文化的黑白繪畫大賽2023 亞軍</p>
-        <p class="content">創作理念：淚痕</p>
+        <p class="content">創作主題："黑白"</p>
+        <p class="content">作品命名：淚痕</p>
+        <p class="content">創作理念：創作以黑白為主題，一隻包含悲傷的眼睛，淚水奪眶而出，深邃的眼窩，眼睫毛根根分明，凌亂飄散的碎髮，讓人有一種共情的傷心感覺。
+        </p>
         <p>
             <img class="imgleft" src="./src/image15.jpg" alt="" />
             <img class="imgleft" src="./src/image14.jpg" alt="">
         </p>
         <p class="content">第十二屆《小城影畫》攝影及繪畫填色比賽 優異獎</p>
-        <p class="content">創作理念：人和建築都共融</p>
+        <p class="content">創作主題："睦鄰共融"</p>
+        <p class="content">作品命名：共融地球</p>
+        <p class="content">
+            創作理念：在地球的不同大陸上，生活着各式各樣的人，也存在着各種各樣的建築，希望通過將心比心，還有背後的各種不同地方的建築物，展現出人們生活共融互相幫助的現象，再加上象徵着和平的白鴿和印有口號的絲帶，更好地展現出睦鄰共融的主題。
+        </p>
         <p>
             <img class="imgleft" src="./src/image8.jpg" alt="" />
             <img class="imgleft" src="./src/image51.jpg" alt="">
         </p>
         <p class="content">夢想童盟「童樂盃」2022—紅包設計比賽 入圍獎</p>
-        <p class="content">創作理念：兔年</p>
+        <p class="content">創作主題："紅包"</p>
+        <p class="content">作品命名：兔年紅包</p>
+        <p class="content">
+            創作理念：正面的中央是一隻袋袋的小白兔，後方有着一行魚鱗紋，飄着中國風格的雲，再加上新年的燈籠和鞭炮，正面和背面的中央都有新年快樂的字句，更好地展現出新年的氣氛，更讓人清楚了解到兔年到了。</p>
+
+        <p class="text">設計作品</p>
+        <p>
+            <img class="imgright" src="./src/image53.jpg" alt="" />
+        <p class="content">創作主題："交流交融，創想未來"</p>
+        <p class="content">作品命名：時空之窗</p>
+        <p class="content">
+            創作理念：透過一扇窗戶象徵性地分隔並連接了兩個世界：室內，一個小男孩象徵著傳統的價值和熟悉的安寧；而窗外，廣闊的宇宙、飛舞的火箭、穿梭的無軌列車以及神秘的UFO描繪了一個充滿無限可能的未來。小男孩與一位太空人通過窗戶手對手相望，彷彿就在這一刻兩個世界通過他們的雙手交融了在一起，這不僅突顯了傳統與未來、熟悉與未知之間的對話，也象徵了人類對於探索的永恆渴望和對未來的無限想象。
+        </p>
+        <p>
+            <img class="imgright" src="./src/image24.jpg" alt="">
+        <p class="content">創作主題："海洋污染"</p>
+        <p class="content">作品命名：有毒的海洋</p>
+        <p class="content">
+            創作理念：本作品通過不斷向上游的水母，像是向上逃離着，因為下方的礁石佈滿了垃圾，因為水母的生命力普遍是比較頑強的，若果連這樣的水母也需要拚命地向上逃離，也側面說明了可讓的污染有多麼嚴重，即使人類經常認為水母是有毒的，但是也毒不過這有毒的海洋。
+        </p>
+        </p>
+        <p>
+            <img class="imgright" src="./src/image55.jpg" alt="" />
+        <p class="content">創作主題："生日咭設計"</p>
+        <p class="content">作品命名：生日祝福</p>
+        <p class="content">
+            創作理念：这幅生日卡用蓝色调传递了一种轻松和平静的氛围，蓝色给人一种安心的感觉，，生日不只是庆祝，还意味着新的开始。蛋糕上的花朵和植物代表生活的多样和丰富，每一朵花都是对美好事物的期待、健康、幸福和成功的祝福。
+        </p>
+        </p>
+        <p>
+            <img class="imgright" src="./src/image3.jpg" alt="">
+        <p class="content">創作主題："澳門&煙花"</p>
+        <p class="content">作品命名：晚上的觀光塔</p>
+        <p class="content">
+            創作理念：這是一幅觀光塔的夜景，一閃而過的煙花剛好被定格在這一刻，色彩繽紛的煙花映照出五彩斑斕的觀光塔還有海中的倒影，地上的人們也為了這一刻的美麗而坐車到觀光塔附近欣賞，導致排起了一條長長的車龍。
+        </p>
+        </p>
 
         <p class="text">練習</p>
         <p>
-            <img class="imgleft" src="./src/image28.jpg" alt="" />
-            <img class="imgleft" src="./src/image1.jpg" alt="">
-        </p>
-        <p>
             <img class="imgleft" src="./src/image52.jpg" alt="" />
-            <img class="imgleft" src="./src/image53.jpg" alt="">
+            <img class="imgleft" src="./src/image12.jpg" alt="">
         </p>
         <p>
             <img class="imgleft" src="./src/image37.jpg" alt="" />
             <img class="imgleft" src="./src/image27.jpg" alt="">
         </p>
         <p>
-            <img class="imgleft" src="./src/image29.jpg" alt="" />
-            <img class="imgleft" src="./src/image24.jpg" alt="">
-        </p>
-        <p>
             <img class="imgleft" src="./src/image38.jpg" alt="" />
-            <img class="imgleft" src="./src/image3.jpg" alt="">
+            <img class="imgleft" src="./src/image1.jpg" alt="">
         </p>
         <p>
             <img class="imgleft" src="./src/image20.jpg" alt="" />
@@ -305,34 +631,93 @@
             <img class="imgleft" src="./src/image31.jpg" alt="">
         </p>
         <p>
-            <img class="imgleft" src="./src/image12.jpg" alt="" />
-           
+            <img class="imgleft" src="./src/image29.jpg" alt="" />
         </p>
+
         <p class="text">海報</p>
+        <p class="text">設計作品</p>
         <p>
-            <img class="imgleft" src="./src/image23.jpg" alt="" />
-            <img class="imgleft" src="./src/image32.jpg" alt="">
+            <img class="imgright" src="./src/image28.jpg" alt="" />
+        <p class="content">創作主題："學校52周年"</p>
+        <p class="content">作品命名：沒有(團體創作-負責線稿和底色)</p>
+        <p class="content">
+            創作理念：創造理念一個充滿着忌廉的雙層蛋糕，以藍色為底色突出了學校的高貴，同時也象徵着安定和平，願意學校可以一直平平安安地傳承下去，蛋糕尚有着52的數字氣球和插着一支學校的校旗，背後是一些氣球和拉炮，突出了生日的氣氛。
+        </p>
         </p>
         <p>
-            <img class="imgleft" src="./src/image33.jpg" alt="" />
-            <img class="imgleft" src="./src/image34.jpg" alt="">
+            <img class="imgright" src="./src/image56.jpg" alt="" />
+        <p class="content">創作主題："英文大使的象徵"</p>
+        <p class="content">作品命名：沒有(團體創作-負責草稿、線稿、上色和最後修整)</p>
+        <p class="content">
+            創作理念：整體形像以聖保祿的校徽作為基礎，中間有像徵著威嚴的獅子和充滿幻想的獨角獸，都向著中間的SP火炬，說明了英文大使是建基於聖保祿的，而且非常 敬重象徵聖保祿的火炬。
+        </p>
         </p>
         <p>
             <img class="imgleft" src="./src/image35.jpg" alt="" />
+            <img class="imgleft" src="./src/image23.jpg" alt="">
+        <p class="content">創作主題："中英文藝術薈萃節"</p>
+        <p class="content">作品命名：無</p>
+        <p class="content">
+            創作概念：以活潑的顏色作為底色，不同顏色互相交錯，營造一種活躍的氣氛，有各種不同的表演元素透露出這場演出有那些節目。
+        </p>
+        </p>
+        <p>
+            <img class="imgright" src="./src/image32.jpg" alt="" />
+        <p class="content">創作主題："獎勵星期五"</p>
+        <p class="content">作品命名：無</p>
+        <p class="content">
+            創作理念：在星期五的那天，充滿感恩和欣賞，下方的人物剪影展現出他們對星期五的期望，以一種藍灰色作為底色，展現出一種敬重平和的感覺。
+        </p>
+        </p>
+        <p>
+            <img class="imgright" src="./src/image34.jpg" alt="" />
+        <p class="content">創作主題："Lunch Break"</p>
+        <p class="content">作品命名：沒有(團體創作-負責線稿、上色和最後修整)</p>
+        <p class="content">
+            創作理念：這是一場有關復活節的活動，裏面有各種復活節的元素，帶出了復活節的氣氛。
+        </p>
+        </p>
+        <p class="text">練習</p>
+        <p>
             <img class="imgleft" src="./src/image17.jpg" alt="" />
+            <img class="imgleft" src="./src/image33.jpg" alt="">
         </p>
 
 
         <div id="2"></div>
-        <p class="text">立體</p>
+        <p class="text">獲獎</p>
+        <p>
+            <img class="imgright" src="./src/image57.jpg" alt="" />
+            <img class="imgleft" src="./src/image41.jpg" alt="" />
+            <img class="imgleft" src="./src/image54.jpg" alt="">
+        <p class="content">澳洲電力清潔能源城市挑戰賽 亞軍</p>
+        <p class="content">創作主題："潔淨能源&城市"</p>
+        <p class="content">作品命名：沒有(團體創作-負責核心想法、報告製作與模型製造)</p>
+        <p class="content">
+            創作理念：
+            以海綿城市，氫能和太陽能結合的一個循環系統，雨天通過海綿城市收集雨水，通過儲水箱進入電解水製氫室，分解成氫氣和氧氣分別儲存於地下，電解水製氫的電可以通過日常
+            太陽能所儲到的電去供應，需要用電時可以通過儲氫罐內的氫氣用作緊急發電。 若是颱風天也可以通過海城市去緩解水浸的速度，多餘的水也可以供居民日常沖廁使用。
+        </p>
+        </p>
+        <p class="text">設計作品</p>
         <p>
             <img class="imgleft" src="./src/image6.jpg" alt="" />
             <img class="imgleft" src="./src/image7.jpg" alt="">
-        </p>
-        <p>
-            <img class="imgleft" src="./src/image41.jpg" alt="" />
-            <img class="imgleft" src="./src/image42.jpg" alt="">
-        </p>
+        <p class="content">創作主題："技能&襟章"</p>
+        <p class="content">作品命名：無</p>
+        <p class="content">
+            創作理念： 襟章設計的著重於「技能」，「比賽」，「澳門」這三個要素身上，主體的設計
+            不是一個光滑的圓形，邊上的凹凸位讓它更像是一個齒輪，環環相扣的齒輪才
+            能發揮最大作用，齒輪就像是組成技能的基礎，每一個運作的精緻機械，都是基
+            於各種各樣，大小不一的齒輪緊密連接所組成的，如同每個人所學的技能一樣，
+            由基礎到專業，層層推進，這些齒輪代表著你付出的努力，最終成為你自己的技
+            能。 因此，想表達出技能這個寓意，齒輪便是最佳選擇。
+            而顏色配搭上選取了青色和白色的配搭，之所以選取這兩種顏色，是因為青色寓
+            意創造力，生命力代表主題中的技能，白色寓意公正，正直，代表公平公正
+            的比賽，最後以澳門區旗的綠色為澳門特色地區的花紋染上顏色。
+        <P>
+
+        <p class="text">練習</p>
         <p>
             <img class="imgleft" src="./src/image49.jpg" alt="" />
             <img class="imgleft" src="./src/image50.jpg" alt="">
@@ -358,22 +743,20 @@
         </p>
         <p>
             <img class="imgleft" src="./src/image47.jpg" alt="" />
-            <img class="imgleft" src="./src/image48.jpg" alt="">
         </p>
-        <p class="title">END</p>
+        <a href="#home"><div class="titleed">END</div></a>
     </div>
 
-    <div id="contact"></div>
     <footer>
         <p>Email: soumelodycat@gmail.com</p>
-        <p>Facebook: <a href="http://facebook.com">facebook.com/example</a></p>
-        <p>Instagram: <a href="http://instagram.com">instagram.com/example</a></p>
+        <p>Facebook:Mimi Sou</p>
+        <p>Instagram:melsocat</p>
     </footer>
     <script src="script.js"></script>
 </body>
 <script>
     let slideIndex = 0;
-    showSlides();
+    let slideChangeTimer;
     
     function showSlides() {
         let slides = document.getElementsByClassName("slides")[0].getElementsByTagName("img");
@@ -381,18 +764,35 @@
             slides[i].style.display = "none";
         }
         slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
+        if (slideIndex > slides.length) { 
+            slideIndex = 1 
         }
         slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 5000);
+        clearTimeout(slideChangeTimer);
+        slideChangeTimer = setTimeout(showSlides, 5000);
     }
     
     function changeSlide(n) {
+        clearTimeout(slideChangeTimer); // Clear any existing timer
         slideIndex += (n - 1) % n;
         showSlides();
     }
-</script>
+    
+    // Debounce function to add delay to clicks
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
+    
+    // Wrap changeSlide with debounce
+    const debouncedChangeSlide = debounce(changeSlide, 2000); // 2000 milliseconds delay
+    
+    // Use debouncedChangeSlide in your event handlers instead of changeSlide
+    </script>
 
 
 </html>
